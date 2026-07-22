@@ -7,13 +7,14 @@
   <title>장도원 | 시니어 엔지니어</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="game.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#home">DOWON.JJ</a>
     <nav aria-label="주요 메뉴">
       <a href="#about">About</a>
-      <a href="#project">Project</a>
+      <a href="#projects">Projects</a>
       <a href="#games">Games</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -33,7 +34,7 @@
       <p>대학원 졸업을 바탕으로 복잡한 문제를 선명하게 정리하고 실용적인 해답을 만들어갑니다.</p>
     </section>
 
-    <section id="project" class="panel" aria-labelledby="project-title">
+    <section id="projects" class="panel" aria-labelledby="project-title">
       <p class="section-label">02 / PROJECT</p>
       <h2 id="project-title">카메라 프로젝트</h2>
       <p>관찰과 기록의 경험을 더 나은 제품으로 연결하는 프로젝트입니다.</p>
@@ -42,7 +43,30 @@
     <section id="games" class="panel game-placeholder" aria-labelledby="games-title">
       <p class="section-label">03 / GAMES</p>
       <h2 id="games-title">Worm Protocol</h2>
-      <p>지렁이 게임이 준비 중입니다. 세로 화면과 키보드·터치 조작을 지원할 예정입니다.</p>
+      <p>세로 화면에서 즐기는 작은 지렁이 게임입니다. 방향키, WASD 또는 모바일 버튼으로 이동하세요.</p>
+      <div class="game-shell">
+        <div class="game-hud" aria-live="polite">
+          <span>점수 <strong id="score">0</strong></span>
+          <span>최고 점수 <strong id="high-score">0</strong></span>
+          <span id="game-state">대기 중</span>
+        </div>
+        <canvas id="game-board" width="400" height="400" aria-label="지렁이 게임 보드"></canvas>
+        <p id="game-status" class="game-status" role="status">시작 버튼을 눌러 게임을 시작하세요.</p>
+        <div class="game-actions">
+          <button id="start-game" type="button">시작</button>
+          <button id="pause-game" type="button">일시정지</button>
+          <button id="restart-game" type="button">재시작</button>
+        </div>
+        <div class="touch-controls" aria-label="터치 방향 조작">
+          <button type="button" data-direction="up" aria-label="위로 이동">▲</button>
+          <div>
+            <button type="button" data-direction="left" aria-label="왼쪽으로 이동">◀</button>
+            <button type="button" data-direction="down" aria-label="아래로 이동">▼</button>
+            <button type="button" data-direction="right" aria-label="오른쪽으로 이동">▶</button>
+          </div>
+        </div>
+        <p class="game-help">방향키 / WASD · P 일시정지</p>
+      </div>
     </section>
 
     <section id="contact" class="panel" aria-labelledby="contact-title">

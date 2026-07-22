@@ -14,6 +14,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: radial-gradient(circle at top, #0c2a1d, var(--bg) 46%);
   color: var(--text);
   line-height: 1.7;
@@ -45,7 +46,30 @@ h2 { line-height: 1.2; margin-top: .25rem; }
 .intro, .panel p { color: var(--muted); max-width: 42rem; }
 .panel { border: 1px solid var(--line); background: var(--panel); margin: 1rem 0; padding: clamp(1.25rem, 4vw, 3rem); }
 .game-placeholder { border-color: var(--accent); }
+.game-shell { margin-top: 1.5rem; max-width: 440px; }
+.game-hud { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; justify-content: space-between; margin-bottom: .75rem; }
+.game-hud span { color: var(--muted); font-size: .85rem; }
+.game-hud strong { color: var(--accent); }
+#game-board { background: #020805; border: 1px solid var(--accent); display: block; height: auto; image-rendering: pixelated; max-width: 100%; width: 400px; }
+.game-status { min-height: 1.7em; }
+.game-actions, .touch-controls { display: flex; gap: .6rem; justify-content: center; margin-top: 1rem; }
+.game-actions button, .touch-controls button { background: #0d3b28; border: 1px solid var(--accent); color: var(--text); cursor: pointer; font: inherit; min-height: 2.75rem; min-width: 2.75rem; padding: .5rem .8rem; }
+.game-actions button:hover, .game-actions button:focus-visible, .touch-controls button:hover, .touch-controls button:focus-visible { background: var(--accent); color: var(--bg); }
+.touch-controls { display: block; text-align: center; }
+.touch-controls > button, .touch-controls div { margin: .25rem auto; }
+.game-help { font-size: .8rem; text-align: center; }
 footer { border-top: 1px solid var(--line); color: var(--muted); padding: 1.5rem 1rem; text-align: center; }
+
+button, [role="button"] { touch-action: manipulation; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 @media (max-width: 600px) {
   .site-header { align-items: flex-start; flex-direction: column; gap: .6rem; }
