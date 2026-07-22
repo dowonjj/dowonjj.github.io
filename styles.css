@@ -1,0 +1,54 @@
+:root {
+  color-scheme: dark;
+  --bg: #06100d;
+  --panel: rgba(9, 29, 22, 0.82);
+  --line: #1c6948;
+  --text: #d9ffe9;
+  --muted: #86b49a;
+  --accent: #65ff9a;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 320px;
+  background: radial-gradient(circle at top, #0c2a1d, var(--bg) 46%);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.site-header {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem clamp(1rem, 5vw, 5rem);
+  position: sticky;
+  top: 0;
+  background: rgba(6, 16, 13, 0.9);
+  z-index: 1;
+}
+.brand, nav a, a { color: var(--accent); }
+.brand { font-weight: 700; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+nav a { text-decoration: none; }
+nav a:hover, nav a:focus-visible, a:focus-visible { text-decoration: underline; }
+
+main { margin: 0 auto; max-width: 1100px; padding: 0 1rem 4rem; }
+.hero { min-height: 68vh; display: grid; align-content: center; padding: 5rem 0; }
+.eyebrow, .section-label { color: var(--accent); letter-spacing: .12em; }
+h1 { font-size: clamp(3rem, 12vw, 8rem); line-height: 1; margin: .5rem 0; }
+h2 { line-height: 1.2; margin-top: .25rem; }
+.role { color: var(--accent); font-size: clamp(1.2rem, 3vw, 2rem); }
+.intro, .panel p { color: var(--muted); max-width: 42rem; }
+.panel { border: 1px solid var(--line); background: var(--panel); margin: 1rem 0; padding: clamp(1.25rem, 4vw, 3rem); }
+.game-placeholder { border-color: var(--accent); }
+footer { border-top: 1px solid var(--line); color: var(--muted); padding: 1.5rem 1rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .site-header { align-items: flex-start; flex-direction: column; gap: .6rem; }
+  nav { gap: .7rem; font-size: .9rem; }
+  .hero { min-height: 58vh; }
+}
