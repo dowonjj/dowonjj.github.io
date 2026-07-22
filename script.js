@@ -17,7 +17,13 @@ document.documentElement.dataset.js = "enabled";
     fireworks.appendChild(burst);
   }
 
-  launchFirework();
+  function launchWave() {
+    for (let burstIndex = 0; burstIndex < 3; burstIndex += 1) {
+      window.setTimeout(launchFirework, burstIndex * 140);
+    }
+  }
+
+  launchWave();
   if (fireworksTimer !== null) window.clearInterval(fireworksTimer);
-  fireworksTimer = window.setInterval(launchFirework, 2600);
+  fireworksTimer = window.setInterval(launchWave, 1500);
 }());
